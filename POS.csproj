@@ -9,9 +9,13 @@
 
   <ItemGroup>
     <Compile Remove="Areas\Identity\Pages\Account\NewFolder\**" />
+    <Compile Remove="Areas\Register\**" />
     <Content Remove="Areas\Identity\Pages\Account\NewFolder\**" />
+    <Content Remove="Areas\Register\**" />
     <EmbeddedResource Remove="Areas\Identity\Pages\Account\NewFolder\**" />
+    <EmbeddedResource Remove="Areas\Register\**" />
     <None Remove="Areas\Identity\Pages\Account\NewFolder\**" />
+    <None Remove="Areas\Register\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -29,10 +33,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Areas\Register\Controllers\" />
-    <Folder Include="Areas\Register\Data\" />
-    <Folder Include="Areas\Register\Models\" />
-    <Folder Include="Areas\Register\Views\" />
     <Folder Include="DataModel\" />
     <Folder Include="ViewModel\" />
   </ItemGroup>

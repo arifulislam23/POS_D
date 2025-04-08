@@ -1,188 +1,90 @@
 ﻿@page
 @model RegisterModel
+  
 @{
-    ViewData["Title"] = "Register";
+    ViewData["Title"] = "Log in";
     Layout = null;
 }
-
-
+ 
 <html lang="en">
 <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AdminLTE 3 | Log in (v2)</title>
 
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="~/admin/plugins/fontawesome-free/css/all.min.css">
+    <!-- icheck bootstrap -->
+    <link rel="stylesheet" href="~/admin/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="~/admin/dist/css/adminlte.min.css">
 </head>
-<body>
-        <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
-            <h1>Registration</h1>
-
-    <div class="wrapper">
-            <div class="input-box">
-                <div class="input-field">
-                    <input asp-for="Input.Email" type="email" placeholder="Email" required>
-                    <ion-icon name="mail"></ion-icon>
-                </div>
-                <div class="input-field">
-                    <input asp-for="Input.Number" placeholder="Phone Number" required>
-                    <ion-icon name="call"></ion-icon>
-                </div>
+<body class="hold-transition login-page">
+    <div class="login-box">
+        <!-- /.login-logo -->
+        <div class="card card-outline card-primary">
+            <div class="card-header text-center">
+                <a href="~/admin/index2.html" class="h1"><b>Admin</b>LTE</a>
             </div>
+            <div class="card-body">
+                <p class="login-box-msg">Sign in to start your session</p>
 
-            <div class="input-box">
-                <div class="input-field">
-                    <input asp-for="Input.Password" placeholder="Password" required>
-                    <ion-icon name="lock"></ion-icon>
-                </div>
-                <div class="input-field">
-                    <input asp-for="Input.ConfirmPassword" type="password" placeholder="Confirm Password" required>
-                    <ion-icon name="lock"></ion-icon>
-                </div>
+                <form id="account" method="post">
+                    <div class="input-group mb-3">
+                        <input asp-for="Input.Email" type="email" class="form-control" placeholder="Email">
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-envelope"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <input asp-for="Input.Password" type="password" class="form-control" placeholder="Password">
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-lock"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-group mb-3">
+                        <input asp-for="Input.ConfirmPassword" type="password" class="form-control" placeholder="Confirm Password">
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-lock"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                      
+                        <!-- /.col -->
+                        <div class="col-4">
+                            <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+                        </div>
+                        <!-- /.col -->
+                    </div>
+                </form>
+
+              
             </div>
-            <label><input type="checkbox">I hereby declare that the above information provided is true and correct</label>
-
-            <button type="submit" class="btn">Register</button>
-
-        </form>
+            <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
     </div>
-
-
-
-
-<style>
-
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: 'Poppins', sans-serif;
+    <!-- /.login-box -->
+    <!-- jQuery -->
+    <script src="~/admin/plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="~/admin/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="~/admin/dist/js/adminlte.min.js"></script>
+    @section Scripts {
+        <partial name="_ValidationScriptsPartial" />
     }
-
-    body {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        min-height: 100vh;
-        background: url();
-        background-size: cover;
-        background-position: center;
-    }
-
-    .wrapper {
-        width: 750px;
-        background: rgba(255, 255, 255, .1);
-        border: 2px solid rgba(255, 255, 255, .2);
-        box-shadow: 0 0 10px rgba(0, 0, 0, .2);
-        backdrop-filter: blur(50px);
-        border-radius: 10px;
-        color: #fff;
-        padding: 40px 35px 55px;
-        margin: 0 10px;
-    }
-
-        .wrapper h1 {
-            font-size: 36px;
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        .wrapper .input-box {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-        }
-
-    .input-box .input-field {
-        position: relative;
-        width: 48%;
-        height: 50px;
-        margin: 13px 0;
-    }
-
-        .input-box .input-field input {
-            width: 100%;
-            height: 100%;
-            background: transparent;
-            border: 2px solid rgba(255, 255, 255, .2);
-            outline: none;
-            font-size: 16px;
-            color: #fff;
-            border-radius: 10px;
-            padding: 15px 15px 15px 40px;
-        }
-
-            .input-box .input-field input::placeholder {
-                color: #fff;
-            }
-
-        .input-box .input-field ion-icon {
-            position: absolute;
-            left: 15px;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 20px;
-        }
-
-    .wrapper label {
-        display: inline-block;
-        font-size: 14.5px;
-        margin: 10px 0 23px;
-    }
-
-    .wrapper p {
-        display: flex;
-        font-size: 16px;
-        margin: 30px 0 23px;
-        align-items: center;
-        justify-content: center;
-        letter-spacing: 1px;
-    }
-
-    .wrapper a {
-        text-decoration: none;
-        color: #fff;
-    }
-
-        .wrapper a:hover {
-            text-decoration: underline;
-        }
-
-
-    .wrapper label input {
-        accent-color: #fff;
-        margin-right: 10px;
-    }
-
-    .wrapper .btn {
-        width: 100%;
-        height: 45px;
-        background: #fff;
-        border: none;
-        outline: none;
-        border-radius: 10px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, .1);
-        cursor: pointer;
-        font-size: 16px;
-        color: #333;
-        font-weight: 600;
-    }
-
-    @@media(max - width: 576px)
-
-    {
-        .input-box .input-field
-
-    {
-        width: 100%;
-        margin: 10px 0;
-    }
-
-    }
-
-</style>
-
 </body>
-
-@section Scripts {
-    <partial name="_ValidationScriptsPartial" />
-}
 </html>
+
 
 
