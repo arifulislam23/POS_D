@@ -8,6 +8,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Areas\Identity\Pages\Account\NewFolder\**" />
+    <Content Remove="Areas\Identity\Pages\Account\NewFolder\**" />
+    <EmbeddedResource Remove="Areas\Identity\Pages\Account\NewFolder\**" />
+    <None Remove="Areas\Identity\Pages\Account\NewFolder\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Areas\Identity\Pages\Account\Register.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="8.0.14" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.14" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="8.0.14" />
@@ -18,6 +29,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Areas\Register\Controllers\" />
+    <Folder Include="Areas\Register\Data\" />
+    <Folder Include="Areas\Register\Models\" />
+    <Folder Include="Areas\Register\Views\" />
     <Folder Include="DataModel\" />
     <Folder Include="ViewModel\" />
   </ItemGroup>
