@@ -1,0 +1,59 @@
+﻿@model POS.DataModel.Customers
+
+@{
+    ViewData["Title"] = "Add Customer";
+    Layout = "~/Views/Shared/_PosLayout.cshtml";
+}
+
+<div class="container mt-4">
+    <h2 class="mb-4">Add New Customer</h2>
+
+    @if (TempData["Message"] != null)
+    {
+        <div class="alert alert-success">@TempData["Message"]</div>
+    }
+
+    <form asp-action="AddCustomer" method="post" id="add-customer-form" class="customer-form">
+        <div class="form-group mb-3">
+            <label asp-for="CustomerName" class="form-label" for="CustomerName"></label>
+            <input asp-for="CustomerName" class="form-control" name="CustomerName" id="CustomerName" placeholder="Enter customer name" />
+            <span asp-validation-for="CustomerName" class="text-danger" id="val-CustomerName"></span>
+        </div>
+
+        <div class="form-group mb-3">
+            <label asp-for="CustomerAddress" class="form-label" for="CustomerAddress"></label>
+            <input asp-for="CustomerAddress" class="form-control" name="CustomerAddress" id="CustomerAddress" placeholder="Enter address" />
+            <span asp-validation-for="CustomerAddress" class="text-danger" id="val-CustomerAddress"></span>
+        </div>
+
+        <div class="form-group mb-3">
+            <label asp-for="CustomerPhone" class="form-label" for="CustomerPhone"></label>
+            <input asp-for="CustomerPhone" class="form-control" name="CustomerPhone" id="CustomerPhone" placeholder="Enter phone number" />
+            <span asp-validation-for="CustomerPhone" class="text-danger" id="val-CustomerPhone"></span>
+        </div>
+
+        <div class="form-group mb-3">
+            <label asp-for="CustomerEmail" class="form-label" for="CustomerEmail"></label>
+            <input asp-for="CustomerEmail" class="form-control" name="CustomerEmail" id="CustomerEmail" placeholder="Enter email address" />
+            <span asp-validation-for="CustomerEmail" class="text-danger" id="val-CustomerEmail"></span>
+        </div>
+
+        <div class="form-group mb-3">
+            <label asp-for="BirthDate" class="form-label" for="BirthDate"></label>
+            <input asp-for="BirthDate" class="form-control" name="BirthDate" id="BirthDate" type="date" />
+            <span asp-validation-for="BirthDate" class="text-danger" id="val-BirthDate"></span>
+        </div>
+
+        <div class="form-group mb-3">
+            <label asp-for="CustomerExtraDetails" class="form-label" for="CustomerExtraDetails"></label>
+            <textarea asp-for="CustomerExtraDetails" class="form-control" name="CustomerExtraDetails" id="CustomerExtraDetails" placeholder="Additional notes..."></textarea>
+            <span asp-validation-for="CustomerExtraDetails" class="text-danger" id="val-CustomerExtraDetails"></span>
+        </div>
+
+        <button type="submit" class="btn btn-primary" id="submit-customer-btn">Add Customer</button>
+    </form>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

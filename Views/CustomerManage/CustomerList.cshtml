@@ -1,0 +1,66 @@
+﻿@model IEnumerable<POS.DataModel.Customers>
+
+@{
+    ViewData["Title"] = "CustomerList";
+    Layout = "~/Views/Shared/_PosLayout.cshtml";
+}
+
+<h1>CustomerList</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                CustomerName
+            </th>
+            <th>
+                CustomerAddress
+            </th>
+            <th>
+                CustomerPhone
+            </th>
+            <th>
+                CustomerEmail
+            </th>
+            <th>
+                BirthDate
+            </th>
+            <th>
+                CustomerExtraDetails
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @item.CustomerName
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustomerAddress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustomerPhone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustomerEmail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BirthDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustomerExtraDetails)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.CustomerID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.CustomerID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.CustomerID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

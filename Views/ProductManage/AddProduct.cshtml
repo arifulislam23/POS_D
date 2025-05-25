@@ -1,0 +1,47 @@
+﻿@model POS.DataModel.Products
+@{
+    ViewData["Title"] = "Add Product";
+    Layout = "~/Views/Shared/_PosLayout.cshtml";
+}
+
+
+
+<div class="container mt-4">
+    <h2 class="mb-4">Add New Product</h2>
+
+    @if (TempData["Message"] != null)
+    {
+        <div class="alert alert-success">@TempData["Message"]</div>
+    }
+
+    <form asp-action="AddProduct" method="post">
+        <div class="form-group mb-3">
+            <label asp-for="ProductName" class="form-label"></label>
+            <input asp-for="ProductName" class="form-control" placeholder="Enter product name" />
+            <span asp-validation-for="ProductName" class="text-danger"></span>
+        </div>
+        <div class="form-group mb-3">
+            <label asp-for="ProductQuantity" class="form-label"></label>
+            <input asp-for="ProductQuantity" class="form-control" placeholder="Enter quantity" />
+            <span asp-validation-for="ProductQuantity" class="text-danger"></span>
+        </div>
+        <div class="form-group mb-3">
+            <label asp-for="ProductPrice" class="form-label"></label>
+            <input asp-for="ProductPrice" class="form-control" placeholder="Enter price" />
+            <span asp-validation-for="ProductPrice" class="text-danger"></span>
+        </div>
+        <div class="form-group mb-3">
+            <label asp-for="ProductDetails" class="form-label"></label>
+            <textarea asp-for="ProductDetails" class="form-control" placeholder="Enter product details"></textarea>
+            <span asp-validation-for="ProductDetails" class="text-danger"></span>
+        </div>
+        <button type="submit" class="btn btn-primary">Add Product</button>
+    </form>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+
+
+
